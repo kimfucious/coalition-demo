@@ -1,17 +1,18 @@
 import { AppRoute } from "../types/routes";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ElHeight, ElName } from "../types";
-import { useAppSelector } from "../hooks/reduxHooks";
+// import { useAppSelector } from "../hooks/reduxHooks";
 import { useMemo, useState } from "react";
 import Home from "../pages/home";
 import NotFound from "../pages/notFound";
-import PageTwo from "../pages/page/components/PageTwo";
-import PrivateRoute from "./PrivateRoute";
-import PublicRoute from "./PublicRoute";
+// import PageTwo from "../pages/page/components/PageTwo";
+// import PrivateRoute from "./PrivateRoute";
+// import PublicRoute from "./PublicRoute";
 
 export default function AppRouter() {
     const [heights, setHeights] = useState<ElHeight[]>([]);
-    const { totalOffset, navbarOffset } = useMemo(() => {
+    // const { totalOffset, navbarOffset } = useMemo(() => {
+    const { navbarOffset } = useMemo(() => {
         let hOffset = 0;
         let nOffset = 56;
         if (heights.length) {

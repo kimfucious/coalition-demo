@@ -2,7 +2,7 @@ import bg from "../../../../assets/images/history_bottom_mask.jpg";
 import { useMemo, useRef, useState } from "react";
 import Images from "./Images";
 import useSize from "@react-hook/size";
-import Dots from "./Dots";
+// import Dots from "./Dots";
 import ImageModal from "./ImageModal";
 import thumb1 from "../../../../assets/images/carousel_thumb_1.jpg";
 import thumb2 from "../../../../assets/images/carousel_thumb_2.jpg";
