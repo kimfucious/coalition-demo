@@ -1,0 +1,44 @@
+// $primary: rgb(63,79,108); // adobe rgb
+// $primary: rgb(38,46,62); // color picker in GIMP
+$primary: #61759e;
+$secondary: #404f6c;
+$gray: #afb4bf;
+$pickles: #3f4f6c;
+
+@import "~bootstrap/scss/bootstrap.scss";
+@import "fonts";
+
+.big-number {
+    font-family: "Oswald";
+    font-size: 96px;
+    font-weight: bold;
+    color: $gray;
+}
+.big-number-title {
+    font-family: "Oswald";
+    font-size: 24px;
+    font-weight: bold;
+    color: $secondary;
+}
+
+.tab-button {
+    color: "#afb4bf" !important;
+    font-family: "Oswald";
+    font-weight: 900;
+    text-decoration: "none";
+}
+
+.tab-button-active {
+    color: "#404f6c" !important;
+    font-family: "Oswald";
+    font-weight: 900;
+    text-decoration: "underline";
+    text-underline-offset: 5;
+}
+
+// To reduce size only import what's being used
+// @import "~bootstrap/scss/functions";
+// @import "~bootstrap/scss/variables";
+// @import "~bootstrap/scss/mixins";
+// @import "~bootstrap/scss/utilities";
+// @import "~bootstrap/scss/grid";
