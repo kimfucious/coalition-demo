@@ -6,8 +6,10 @@ export default function ClimbText() {
     const height = useMemo(()=>{
         if(width < 576) {
             return 50
-        } 
+        } else if (width < 1200){
         return 100
+        } 
+        return 150
     },[width]) 
     return (
         <div
