@@ -16,5 +16,5 @@
 8.  When the screen is < 576px, the Hero page uses a different background image that I customized from the PDF.
 9. Guessing at what you want, I've partially implemented the accordion on small screens for the History page only.  This has been done in a separate branch, accordion, and can be previewed [here](https://deploy-preview-1--rainbow-pasca-6665f9.netlify.app/).  This should be considered WIP.
 10. I know that if you click the `02.Team` link from the Hero on large screens that it doesn't scroll, or it's off by a few pixels. I haven't figured that out yet.
-11. I know that the `02.Climb` header section is wonky. I'm using images, rather than creating a component for both `01.History` and `02.Climb`, which I could do, but didn't.
+11. I know that the `02.Climb` header section is wonky. I'm using images, rather than creating a component for both `01.History` and `02.Climb` texts, which I could do, but didn't.
 12. I could not determine the desired behavior for the Carousel, so I just displayed the images, enlarged in a modal. If this were my design, the clicking the thumbnails would change the `01.History` image, but it's not, so you get a modal for now.
