@@ -1,6 +1,6 @@
-import NavBar from "../../../components/NavBar";
-import { NavType } from "../../../types";
-import ImageCarousel from "../components/ImageCarousel/ImageCarousel";
+import NavBar from "../../../../components/NavBar";
+import { NavType } from "../../../../types";
+import ImageCarousel from "../ImageCarousel/ImageCarousel";
 
 interface Props {
     bgColor?: string;
