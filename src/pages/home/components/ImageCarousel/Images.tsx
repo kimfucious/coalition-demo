@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { ChevronLeft, ChevronRight, Divide } from "tabler-icons-react";
+import { ChevronLeft, ChevronRight } from "tabler-icons-react";
 import { useWindowSize } from "../../../../hooks/useWindowSize";
 import { CarouselImage, CarouselSlideDirection } from "../../../../types";
 import ThumbImage from "./ThumbImage";

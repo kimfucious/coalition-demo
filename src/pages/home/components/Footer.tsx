@@ -2,7 +2,6 @@ import Logo, { LogoType } from "./Logo";
 import { Link } from "react-scroll";
 import { ElHeight, ElName, NavPage } from "../../../types";
 import { useEffect, useRef } from "react";
-import { useWindowSize } from "../../../hooks/useWindowSize";
 import useSize from "@react-hook/size";
 
 interface Props {
