@@ -35,6 +35,7 @@ export default function NavBar({
     const dispatch = useAppDispatch();
 
     useEffect(() => {
+        if (height === 0) return; // prevents display-none elements from causing loop
         const newHeights = [...heights];
         const idx = newHeights.findIndex((item) => item.name === ElName.NAVBAR);
         if (idx !== -1) {

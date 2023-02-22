@@ -1,28 +1,28 @@
 // import NavBar from "../../../components/NavBar";
-import { NavType } from "../../../types";
+// import { NavType } from "../../../types";
 import ClimbText from "./ClimbText";
 import Tabs from "./Tabs";
 
 interface Props {
-    bgColor?: string;
-    heights: any;
+    // bgColor?: string;
+    // heights: any;
     image: string;
-    linkColor: string;
-    linkSize: number;
-    logoHeight: string;
-    navType: NavType;
-    setHeights: (any: any) => void;
+    // linkColor: string;
+    // linkSize: number;
+    // logoHeight: string;
+    // navType: NavType;
+    // setHeights: (any: any) => void;
 }
 export default function Team({
-    bgColor,
-    heights,
+    // bgColor,
+    // heights,
     image,
-    linkColor,
-    linkSize,
-    logoHeight,
-    navType,
-    setHeights,
-}: Props) {
+}: // linkColor,
+// linkSize,
+// logoHeight,
+// navType,
+// setHeights,
+Props) {
     return (
         <div className="container-fluid px-0 w-100">
             {/* <NavBar
@@ -33,7 +33,7 @@ export default function Team({
                 logoHeight={logoHeight}
                 setHeights={setHeights}
             /> */}
-                <ClimbText />
+            <ClimbText />
             <Tabs />
             <img className="img-fluid" src={image} alt="Mountain" />
         </div>

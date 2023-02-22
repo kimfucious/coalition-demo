@@ -9,13 +9,21 @@ import Hero from "./components/Hero";
 import History from "./components/History";
 import m3 from "../../assets/images/m3.jpg";
 import Team from "./components/Team";
+import Accordion from "./components/Accordiion/Accordion";
+import NavBar from "../../components/NavBar";
 
 interface Props {
     navbarOffset: number;
     heights: any;
     setHeights: (any: any) => void;
+    totalOffset: number;
 }
-export default function Home({ heights, setHeights, navbarOffset }: Props) {
+export default function Home({
+    heights,
+    setHeights,
+    navbarOffset,
+    totalOffset,
+}: Props) {
     const { pageName } = useAppSelector((state) => state.app);
     const logoHeight = "28px";
     const linkSize = 10;
@@ -40,39 +48,59 @@ export default function Home({ heights, setHeights, navbarOffset }: Props) {
                         navbarOffset={navbarOffset}
                         navType={NavType.NAVIGATE}
                         setHeights={setHeights}
+                        totalOffset={totalOffset}
                     />
                 </Element>
             )}
             {(pageName === NavPage.HISTORY || pageName === NavPage.TEAM) && (
-                <div>
-                    <Element name={NavPage.HISTORY}>
-                        <History
+                <div className="d-flex w-100" id="history-team-container">
+                    <div
+                        className="d-flex d-sm-none w-100"
+                        id="history-small-break"
+                    >
+                        <Accordion
                             bgColor={"light"}
                             heights={heights}
-                            image={h1}
+                            historyImage={h1}
+                            teamImage={m3}
                             linkColor={"dark"}
                             linkSize={linkSize}
                             logoHeight={logoHeight}
                             navbarOffset={navbarOffset}
-                            navType={NavType.SLIDE}
+                            navType={NavType.COLLAPSE}
                             setHeights={setHeights}
+                            totalOffset={totalOffset}
                         />
-                    </Element>
-                    <Element name={NavPage.TEAM}>
-                        <Team
+                    </div>
+                    <div className="d-none d-sm-flex flex-column">
+                        <NavBar
                             bgColor={"light"}
                             heights={heights}
-                            image={m3}
                             linkColor={"dark"}
                             linkSize={linkSize}
                             logoHeight={logoHeight}
-                            navType={NavType.SLIDE}
+                            navbarOffset={navbarOffset}
+                            navType={NavType.SCROLL}
                             setHeights={setHeights}
                         />
-                    </Element>
+                        <Element
+                            name={NavPage.HISTORY}
+                            style={{ marginTop: navbarOffset }}
+                        >
+                            <History image={h1} />
+                        </Element>
+                        <Element name={NavPage.TEAM}>
+                            <Team image={m3} />
+                        </Element>
+                    </div>
                 </div>
             )}
-            <Footer logoHeight={logoHeight} linkSize={linkSize} />
+            <Footer
+                heights={heights}
+                setHeights={setHeights}
+                logoHeight={logoHeight}
+                linkSize={linkSize}
+            />
         </div>
     );
 }

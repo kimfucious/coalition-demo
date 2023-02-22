@@ -5,7 +5,7 @@ interface Props {
 }
 export default function PageText({ pageNumber, titleText }: Props) {
     return (
-        <div className="container d-flex align-items-center w-100 py-4">
+        <div className="container d-flex w-100 py-4">
             <BigNumber pageNumber={pageNumber} titleText={titleText} />
         </div>
     );

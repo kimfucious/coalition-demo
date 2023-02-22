@@ -1,26 +1,20 @@
+import { CarouselImage } from "../../../../types";
+
 interface Props {
-    idx: number;
-    altText: string;
     elHeight: number;
-    imageSrc: string;
-    setActive: (n: number) => void;
+    image: CarouselImage;
+    setActive: (o: CarouselImage) => void;
 }
-export default function ThumbImage({
-    idx,
-    altText,
-    elHeight,
-    imageSrc,
-    setActive,
-}: Props) {
+export default function ThumbImage({ elHeight, image, setActive }: Props) {
     return (
         <img
             className="mx-1"
             data-bs-toggle="modal"
             data-bs-target="#image-modal"
-            src={imageSrc}
-            alt={altText}
+            src={image.imageSrc}
+            alt={image.altText}
             height={elHeight * 0.8}
-            onClick={() => setActive(idx)}
+            onClick={() => setActive(image)}
         />
     );
 }

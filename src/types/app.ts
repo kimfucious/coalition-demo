@@ -5,7 +5,7 @@ export interface ElHeight {
 
 export enum ElName {
     "NAVBAR" = "navbar",
-    "VIEWER_CONTROLS" = "viewer-controls",
+    "FOOTER" = "footer",
 }
 
 export enum NavPage {
@@ -20,6 +20,18 @@ export enum NavTab {
 }
 
 export enum NavType {
-    SLIDE = "slide",
+    COLLAPSE = "collapse",
+    SCROLL = "slide",
     NAVIGATE = "navigate",
+}
+
+export enum CarouselSlideDirection {
+    NEXT = "next",
+    PREV = "prev",
+}
+
+export interface CarouselImage {
+    id: number;
+    imageSrc: string;
+    altText: string;
 }

@@ -24,7 +24,7 @@ export default function NavLinkButton({
     }
     return (
         <div>
-            {navType === NavType.NAVIGATE ? (
+            {(navType === NavType.COLLAPSE || navType === NavType.NAVIGATE) && (
                 <div
                     className={`btn btn-link btn-sm fw-bold text-${textColor} text-decoration-underline text-uppercase`}
                     style={{ textUnderlineOffset: "3px" }}
@@ -32,7 +32,8 @@ export default function NavLinkButton({
                 >
                     <span style={{ fontSize: linkSize }}>{label}</span>
                 </div>
-            ) : (
+            )}
+            {navType === NavType.SCROLL && (
                 <Link
                     className={`btn btn-link btn-sm fw-bold text-${textColor} text-decoration-underline text-uppercase`}
                     to={destination}
@@ -42,6 +43,16 @@ export default function NavLinkButton({
                     <span style={{ fontSize: linkSize }}>{label}</span>
                 </Link>
             )}
+            {/* {navType === NavType.COLLAPSE && (
+                <div
+                    className={`btn btn-link btn-sm fw-bold text-${textColor} text-decoration-underline text-uppercase`}
+                    data-bs-toggle="collapse" 
+                    data-bs-target={`#${destination}`}
+                    style={{ textUnderlineOffset: "3px" }}
+                >
+                    <span style={{ fontSize: linkSize }}>{label}</span>
+                </div>
+            )} */}
         </div>
     );
 }

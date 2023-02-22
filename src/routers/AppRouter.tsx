@@ -11,8 +11,8 @@ import NotFound from "../pages/notFound";
 
 export default function AppRouter() {
     const [heights, setHeights] = useState<ElHeight[]>([]);
-    // const { totalOffset, navbarOffset } = useMemo(() => {
-    const { navbarOffset } = useMemo(() => {
+    const { totalOffset, navbarOffset } = useMemo(() => {
+        // const { navbarOffset } = useMemo(() => {
         let hOffset = 0;
         let nOffset = 56;
         if (heights.length) {
@@ -34,6 +34,7 @@ export default function AppRouter() {
                             heights={heights}
                             setHeights={setHeights}
                             navbarOffset={navbarOffset}
+                            totalOffset={totalOffset}
                         />
                     }
                 />

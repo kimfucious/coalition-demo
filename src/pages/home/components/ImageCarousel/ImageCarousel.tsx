@@ -1,4 +1,4 @@
-import bg from "../../../../assets/images/history_bottom_mask.jpg";
+// import bg from "../../../../assets/images/history_bottom_mask.jpg";
 import { useMemo, useRef, useState } from "react";
 import Images from "./Images";
 import useSize from "@react-hook/size";
@@ -6,45 +6,42 @@ import useSize from "@react-hook/size";
 import ImageModal from "./ImageModal";
 import thumb1 from "../../../../assets/images/carousel_thumb_1.jpg";
 import thumb2 from "../../../../assets/images/carousel_thumb_2.jpg";
+import { CarouselImage } from "../../../../types";
+const images = [
+    { id: 0, imageSrc: thumb1, altText: "Man on ledge" },
+    { id: 1, imageSrc: thumb2, altText: "Misty Mountains" },
+    { id: 2, imageSrc: thumb1, altText: "Man on ledge" },
+    { id: 3, imageSrc: thumb2, altText: "Misty Mountains" },
+];
 export default function ImageCarousel() {
     const target = useRef(null);
     const [, height] = useSize(target);
-    const [active, setActive] = useState<number>(0);
-    const {image, altText} = useMemo(()=>{
-        let image
-        let altText
-        if(active % 2 === 0) {
-            image = thumb1
-            altText = "Man on a Ledge"
-        } else {
-            image = thumb2
-            altText = "Misty Mountains"
-        }
-        return {image,altText}
-    },[active])
+    const [active, setActive] = useState<CarouselImage>({
+        id: 0,
+        imageSrc: thumb1,
+        altText: "Man on ledge",
+    });
+    const { image, altText } = useMemo(() => {
+        return { image: active.imageSrc, altText: active.altText };
+    }, [active]);
     return (
-<>
-        <div className="d-flex" style={{ position: "relative" }}>
-            <img className="img-fluid" src={bg} alt="layer mask" />
+        <>
             <div
-                className="py-2"
-                ref={target}
-                style={{
-                    position: "absolute",
-                    top: 0,
-                    right: 0,
-                    bottom: 0,
-                    left: 0,
-                }}
+                className="d-flex justify-content-center w-100"
+                style={{ backgroundColor: "rgba(25,31,42,0.75)" }}
+                // opacity affects everything here
+                // style={{ backgroundColor: "#404f6c", opacity: 0.5 }}
             >
-                <Images
-                    setActive={setActive}
-                    elHeight={height}
-                />
-                {/* <Dots active={active} /> */}
+                <div className="py-2" ref={target}>
+                    <Images
+                        setActive={setActive}
+                        elHeight={height}
+                        images={images}
+                    />
+                    {/* <Dots active={active} /> */}
+                </div>
             </div>
-        </div>
-        <ImageModal imageSrc={image} altText={altText}/>
-</>
+            <ImageModal imageSrc={image} altText={altText} />
+        </>
     );
 }

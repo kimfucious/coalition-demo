@@ -12,6 +12,7 @@ interface Props {
     navbarOffset: number;
     navType: NavType;
     setHeights: (any: any) => void;
+    totalOffset: number;
 }
 export default function Hero({
     bgColor,
@@ -22,25 +23,34 @@ export default function Hero({
     navbarOffset,
     navType,
     setHeights,
+    totalOffset,
 }: Props) {
-    const [, width] = useWindowSize();
+    const [viewportHeight, viewPortWidth] = useWindowSize();
     const imageURL = useMemo(() => {
         const baseURL = process.env.PUBLIC_URL;
-        if (width < 576) {
+        if (viewPortWidth < 576) {
             return `${baseURL}/m1-small.jpg`;
         } else {
             return `${baseURL}/m1.jpg`;
         }
-    }, [width]);
+    }, [viewPortWidth]);
+    const height = useMemo(() => {
+        if (totalOffset) {
+            return viewportHeight - (totalOffset-navbarOffset);
+        } else {
+            return viewportHeight;
+        }
+    }, [navbarOffset, totalOffset, viewportHeight]);
     return (
         <>
             <div
-                className="d-flex w-100 vh-100"
+                className="d-flex w-100"
                 style={{
                     backgroundImage: `url(${imageURL})`,
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
+                    height,
                 }}
             >
                 <div className="w-100">
